@@ -2,17 +2,18 @@ package work.realmsnetwork.sync.transport;
 
 import work.realmsnetwork.sync.api.event.SyncEvent;
 
+import java.util.function.Consumer;
+
 /**
  * Communication abstraction. Providers can implement SQL, Redis, RabbitMQ or
- * other transports without changing the synchronization engine.
+ * custom transports without changing the synchronization engine.
  */
 public interface Transport {
 
     void publish(SyncEvent event);
 
-    void subscribe(EventConsumer consumer);
+    void subscribe(Consumer<SyncEvent> consumer);
 
-    interface EventConsumer {
-        void accept(SyncEvent event);
+    default void close() {
     }
 }
