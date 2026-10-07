@@ -13,6 +13,8 @@
     <modules>
         <module>api</module>
         <module>core</module>
+        <module>protocol</module>
+        <module>storage</module>
         <module>transport-api</module>
         <module>platform-bukkit</module>
         <module>platform-velocity</module>
