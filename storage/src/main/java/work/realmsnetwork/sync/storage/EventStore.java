@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Persistent storage contract for synchronization events.
- * Implementations may use SQL, Redis streams, or other durable stores.
+ * Durable event storage abstraction.
+ *
+ * Implementations must preserve event ordering and provide replay support.
+ * Conflict resolution is handled by the synchronization layer, not by
+ * blindly replacing newer records.
  */
 public interface EventStore {
 
